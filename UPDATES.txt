@@ -1,3 +1,2 @@
-      FSVRL - Game Launcher Application
-
-          updates - information
+            FSVRL - Game Launcher Application
+                  updates - information
