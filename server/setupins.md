@@ -13,18 +13,18 @@ vncserver
 nano /etc/systemd/system/vncserver.service
 
 [Unit]
-  Description=TightVNC server
-  After=syslog.target network.target
-  [Service]
-  Type=forking
-  User=root
-  PAMName=login
-  PIDFile=/root/.vnc/%H:1.pid
-  ExecStartPre=-/usr/bin/vncserver -kill :1 > /dev/null 2>&1
-  ExeStart=/usr/bin/vncserver
-  Exestop=/usr/bin/vncserver -kill :1
-  [Install]
-  WantedBy=Multi-user.target
+   Description=TightVNC server
+   After=syslog.target network.target
+[Service]
+   Type=forking
+   User=root
+   PAMName=login
+   PIDFile=/root/.vnc/%H:1.pid
+   ExecStartPre=-/usr/bin/vncserver -kill :1 > /dev/null 2>&1
+   ExecStart=/usr/bin/vncserver
+   ExecStop=/usr/bin/vncserver -kill :1
+[Install]
+   WantedBy=multi-user.target
 
   systemctl daemon-reload
   systemctl enable --now vncserver
